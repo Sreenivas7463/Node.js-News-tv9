@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js News</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.0/moment.min.js"></script>
+</head>
+<body>
+    <header class="header">
+        <div class="header__logo">Node.Js News</div>
+        <%- include('./partials/search.ejs') %>
+    </header>
+
+    <div class="wrapper">
+        <div class="news">
+            <% if(articles != null) { %>
+            <% articles.forEach(function(article, index) { %>
+               
+                <a href="/article/<%- article.id %>/<%- article.featured_media%>" class="news__card">
+                   <!--<img src="<%- article.thumbnail_url %>" alt="<%- article.title.rendered %>">-->
+                   
+                    <h2><%- article.title.rendered %> &nbsp;<small id="<%- article.id %>"><%- article.date  %></small></h2>
+                    <p><%- article.excerpt.rendered %></p>
+                </a>
+               
+            <% }) %>
+            <% } else { %>
+                No posts found.
+            <% } %>
+        </div>
+    </div>  
+    <script >
+   
+    
+
+    function modify()
+	{  var i=0;
+		  // Get a NodeList of all .demo elements
+		const demoClasses = document.querySelectorAll('small');
+		//alert(demoClasses.id);
+		// Change the text of multiple elements with a loop
+        demoClasses.forEach(element => {
+		  //element.textContent = 'All demo classes updated.';
+		  var date = $('#'+demoClasses[i].id).text();
+		  
+
+          var dt = moment(date).format('DD-MM-YYYY h:m:s a');
+          
+          $('#'+demoClasses[i].id).html(dt);
+
+		  i++;
+		});
+		
+	}
+    setTimeout(modify, 3500);
+    </script>
+</body>
+</html> 
