@@ -3,7 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Node.js News</title> 
+    <title><%- article.title.rendered %></title> 
+    <meta name="description" content="<%- article.excerpt.rendered %>">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ntvnews.herokuapp.com/">
+    <meta property="og:title" content="<%- article.title.rendered %>">
+    <meta property="og:description" content="<%- article.excerpt.rendered %>">
+    <meta property="og:image" content="<%- media.guid.rendered %>">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://ntvnews.herokuapp.com/">
+    <meta property="twitter:title" content="<%- article.title.rendered %>">
+    <meta property="twitter:description" content="<%- article.excerpt.rendered %>">
+    <meta property="twitter:image" content="<%- media.guid.rendered %>"> 
     <link rel="stylesheet" href="/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
