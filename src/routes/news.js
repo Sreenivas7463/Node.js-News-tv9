@@ -28,7 +28,7 @@ newsRouter.get('/:p', async(req, res) => {
 
     try {
         const newsAPI = await axios.get(`https://tv9telugu.com/wp-json/wp/v2/posts/?per_page=100&page=${pageNo}`)
-        res.render('news', { articles : newsAPI.data })
+        res.render('news', { articles : newsAPI.data})
     } catch (err) {
         if(err.response) {
             res.render('news', { articles : null })
