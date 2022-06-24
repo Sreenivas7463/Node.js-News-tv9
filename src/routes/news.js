@@ -5,7 +5,7 @@ const axios = require('axios')
 
 newsRouter.get('', async(req, res) => {
    try {
-        const newsAPI = await axios.get(`https://tv9telugu.com/wp-json/wp/v2/posts/?per_page=100&page=1`)
+        const newsAPI = await axios.get(`https://tv9telugu.com/wp-json/wp/v2/posts/?_embed&per_page=100&page=1`)
         res.render('news', { articles : newsAPI.data })
     } catch (err) {
         if(err.response) {
@@ -27,7 +27,7 @@ newsRouter.get('/:p', async(req, res) => {
     let pageNo = req.params.p
 
     try {
-        const newsAPI = await axios.get(`https://tv9telugu.com/wp-json/wp/v2/posts/?per_page=100&page=${pageNo}`)
+        const newsAPI = await axios.get(`https://tv9telugu.com/wp-json/wp/v2/posts/?_embed&per_page=100&page=${pageNo}`)
         res.render('news', { articles : newsAPI.data})
     } catch (err) {
         if(err.response) {
