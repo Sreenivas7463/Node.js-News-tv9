@@ -22,7 +22,7 @@
             <% articles.forEach(function(article, index) { %>
                
                 <a href="/article/<%- article.id %>/<%- article.featured_media%>" class="news__card">
-                   <!--<img src="<%- article.thumbnail_url %>" alt="<%- article.title.rendered %>">-->
+                   <img src='<%- article["_embedded"]["wp:featuredmedia"][0]["source_url"] %>' alt="<%- article.title.rendered %>">
                    
                     <h2><%- article.title.rendered %> &nbsp;<small id="<%- article.id %>"><%- article.date  %></small></h2>
                     <p><%- article.excerpt.rendered %></p>
