@@ -21,7 +21,7 @@
             <% if(articles != null) { %>
             <% articles.forEach(function(article, index) { %>
                
-                <a href="/article/<%- article.id %>/<% if(article.featured_media) { %> <%- article.featured_media %> <% } %>" class="news__card">
+                <a href="/article/<%- article.id %>/<%- article.featured_media %>" class="news__card">
                    <img src='<%- article["_embedded"]["wp:featuredmedia"][0]["source_url"] %>' alt="<%- article.title.rendered %>">
                    
                     <h2><%- article.title.rendered %> &nbsp;<small id="<%- article.id %>"><%- article.date  %></small></h2>
